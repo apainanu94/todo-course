@@ -11,10 +11,6 @@ body {
   min-height: 100vh;
 }
 
-header {
-  font-size: 1rem;
-}
-
 header,
 form {
   min-height: 20vh;
@@ -25,7 +21,7 @@ form {
 
 form input,
 form button {
-  padding: 0.6rem 0.3rem;
+  padding: 0.6rem 0.8rem;
   font-size: 1rem;
   border: none;
   background: white;
@@ -33,14 +29,14 @@ form button {
 
 form button {
   color: #cc0c3c;
-  background: white;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: transform 0.5s;
 }
 
 form button:hover {
   background: #e41e4f;
   color: white;
+  transform: rotateY(180deg);
 }
 
 .todo-container {
@@ -62,6 +58,7 @@ form button:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: all 0.5s ease;
 }
 
 .todo li {
@@ -73,20 +70,82 @@ form button:hover {
   background: #e41e4f;
   color: white;
   border: none;
-  padding: 0.6rem;
+  padding: 0.6rem 1rem;
   cursor: pointer;
   font-size: 1rem;
+  transition: transform 0.8s;
+}
+
+.trash-btn:hover {
+  background: #e41e4f;
+  color: white;
+  transform: rotateY(360deg);
 }
 
 .complete-btn {
   background: #1adf34;
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: transform 0.8s;
+}
+
+.complete-btn:hover {
+  background: #1adf34;
+  color: white;
+  transform: rotateY(360deg);
 }
 
 .todo-item {
-  padding: 0rem 0.5rem;
+  padding: 0rem 0.6rem;
+  width: 20rem;
 }
 
-.fa fa-trash,
-fa fa-check {
+.fa-trash,
+.fa-check {
   pointer-events: none;
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.fall {
+  transform: translateY(8rem) rotateZ(20deg);
+  opacity: 0;
+}
+
+select {
+  appearance: none;
+  outline: none;
+  border: none;
+  color: #e41e4f;
+  width: 10rem;
+  cursor: pointer;
+  padding: 0.7rem;
+}
+
+.select {
+  margin: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.select::after {
+  content: "\25BC";
+  position: absolute;
+  background: #e41e4f;
+  top: 0;
+  right: 0;
+  padding: 0.4rem 0.7rem;
+  pointer-events: none;
+}
+
+.select:hover::after {
+  background: white;
+  color: #e41e4f;
+  transition: all 0.5s ease;
 }
